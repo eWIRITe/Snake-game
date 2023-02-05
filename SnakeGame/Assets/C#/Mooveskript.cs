@@ -24,6 +24,7 @@ public class Mooveskript : MonoBehaviour
 
     void FixedUpdate()
     {
-        if(isCanMoove) _rb.AddRelativeForce(new Vector3(0, 0, Speed));
+        if (isCanMoove) _rb.AddRelativeForce(new Vector3(0, 0, Speed));
+        Speed += 0.01f;
     }
 }

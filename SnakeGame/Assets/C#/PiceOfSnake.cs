@@ -13,6 +13,8 @@ public class PiceOfSnake : MonoBehaviour
 
     public GameObject PosToSpawnNextPice;
 
+    public bool spawned = false;
+
     public void OnTriggerEnter(Collider other)
     {
         if(other.tag == BonusTag)
@@ -21,28 +23,27 @@ public class PiceOfSnake : MonoBehaviour
             PlayerObj.GetComponent<MainSnakeScript>().onAddPice();
             Destroy(other.gameObject);
         }
-
-        else if (BonusTag == TagOfBariers)
-        {
-            //if other is barier
-            PlayerObj.GetComponent<MainSnakeScript>().onDead();
-            Destroy(other.gameObject);
-        }
     }
 
     public void AddPice(GameObject PrefOfPice)
     {
-        //create new pice
-        GameObject newPice = Instantiate(PrefOfPice, PosToSpawnNextPice.transform.position, PosToSpawnNextPice.transform.rotation);
+        if (!spawned)
+        {
+            //create new pice
+            GameObject newPice = Instantiate(PrefOfPice, PosToSpawnNextPice.transform.position, PosToSpawnNextPice.transform.rotation);
 
-        newPice.GetComponent<CharacterJoint>().connectedBody = gameObject.GetComponent<Rigidbody>();
+            newPice.GetComponent<CharacterJoint>().connectedBody = gameObject.GetComponent<Rigidbody>();
 
-        newPice.GetComponent<PiceOfSnake>().PlayerObj = PlayerObj;
+            newPice.GetComponent<PiceOfSnake>().PlayerObj = PlayerObj;
 
-        PlayerObj.GetComponent<MainSnakeScript>().lastPice = newPice;
+            PlayerObj.GetComponent<MainSnakeScript>().lastPice = newPice;
 
-        //set player in "PiceOfSnake" script
-        newPice.GetComponent<PiceOfSnake>().PlayerObj = PlayerObj;
+            //set player in "PiceOfSnake" script
+            newPice.GetComponent<PiceOfSnake>().PlayerObj = PlayerObj;
 
+
+            //counter to avoid bugs
+            spawned = true;
+        }
     }
 }

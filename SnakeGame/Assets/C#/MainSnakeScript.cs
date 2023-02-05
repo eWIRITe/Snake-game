@@ -10,16 +10,8 @@ public class MainSnakeScript : MonoBehaviour
     public GameObject lastPice;
     public GameObject PicePref;
 
-    //variables for dead
-    public GameObject DeadScreen;
-
     public void onAddPice()
     {
         lastPice.GetComponent<PiceOfSnake>().AddPice(PicePref);
-    }
-
-    public void onDead()
-    {
-        DeadScreen.SetActive(true);
     }
 }

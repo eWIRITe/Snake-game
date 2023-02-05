@@ -18,7 +18,7 @@ GameObject:
   - component: {fileID: 4542106574568011243}
   m_Layer: 0
   m_Name: Sphere (1)
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -147,6 +147,7 @@ MonoBehaviour:
   BonusTag: Bonus
   TagOfBariers: 
   PosToSpawnNextPice: {fileID: 4542106575021151203}
+  spawned: 0
 --- !u!144 &4542106574568011243
 CharacterJoint:
   m_ObjectHideFlags: 0
