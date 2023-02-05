@@ -9,7 +9,7 @@ public class PiceOfSnake : MonoBehaviour
 
     //tags of objects
     public string BonusTag;
-    public string[] TagsOfBariers;
+    public string TagOfBariers;
 
     public void OnTriggerEnter(Collider other)
     {
@@ -17,27 +17,14 @@ public class PiceOfSnake : MonoBehaviour
         {
             //if other is bonus
             PlayerObj.GetComponent<MainSnakeScript>().onAddPice();
+            Destroy(other.gameObject);
         }
 
-        else if (inList(BonusTag, TagsOfBariers))
+        else if (BonusTag == TagOfBariers)
         {
             //if other is barier
             PlayerObj.GetComponent<MainSnakeScript>().onDead();
+            Destroy(other.gameObject);
         }
-    }
-
-    public bool inList(string NeedTag, string[] listOfTags)
-    {
-
-        //check for need tag
-
-        for (int i = 0; i < listOfTags.Length; i++)
-        {
-            if (listOfTags[i] == NeedTag)
-            {
-                return true;
-            }
-        }
-        return false;
     }
 }

@@ -1,13 +1,14 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 
 
 public class MainSnakeScript : MonoBehaviour
 {
     //variables of snake
-    public GameObject[] SnakePices;
-    public GameObject[] Pice;
+    public GameObject LastObj;
+    public GameObject[] PicePrefs;
 
     //variables for dead
     public GameObject DeadScreen;
@@ -15,16 +16,14 @@ public class MainSnakeScript : MonoBehaviour
     public void onAddPice()
     {
         //create new pice
-        GameObject newPice = Instantiate(Pice[Random.Range(0, Pice.Length)], 
-            new Vector3(SnakePices[-1].transform.position.x, SnakePices[-1].transform.position.y, SnakePices[-1].transform.position.z - 1.023f), 
-            Quaternion.identity);
+        GameObject newPice = Instantiate(PicePrefs[Random.Range(0, PicePrefs.Length)], new Vector3(LastObj.transform.position.x, LastObj.transform.position.y, LastObj.transform.position.z + 1.023f), Quaternion.identity);
 
-
-        //add pice in list of pices
-        SnakePices[SnakePices.Length+1] = newPice;
+        newPice.GetComponent<CharacterJoint>().connectedBody = LastObj.GetComponent<Rigidbody>();
 
         //set player in "PiceOfSnake" script
         newPice.GetComponent<PiceOfSnake>().PlayerObj = this.gameObject;
+
+        LastObj = newPice;
     }
 
     public void onDead()
