@@ -14,6 +14,7 @@ public class BonusesSpawnScript : MonoBehaviour
 
     public void FixedUpdate()
     {
+        //when timer is get, we createing new BonusObject
         if (Timer >= TimeTo)
         {
             Instantiate(BonusPref, new Vector3(Random.Range(Pos1.position.x, Pos2.position.x), Pos1.position.y, Random.Range(Pos1.position.z, Pos2.position.z)), Quaternion.identity);

@@ -10,6 +10,8 @@ public class MainSnakeScript : MonoBehaviour
     public GameObject lastPice;
     public GameObject PicePref;
 
+
+    //function, to get the last one pice
     public void onAddPice()
     {
         lastPice.GetComponent<PiceOfSnake>().AddPice(PicePref);
