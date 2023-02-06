@@ -33,30 +33,32 @@ public class Mooveskript : NetworkBehaviour
     public string nameOfVirtualCamera;
     public GameObject head;
 
-
-    public void Start()
+    void Start()
     {
-        if (!isLocalPlayer) { return; }
-
-        _virtualCamera = GameObject.Find(nameOfVirtualCamera).GetComponent<CinemachineVirtualCamera>();
-        _virtualCamera.Follow = head.transform;
-        _virtualCamera.LookAt = head.transform;
-
-        for (int i = 0; i < BeginSize - 1; i++)
+        if (isOwned)
         {
-            AddBodyPice();
+            _virtualCamera = GameObject.Find(nameOfVirtualCamera).GetComponent<CinemachineVirtualCamera>();
+            _virtualCamera.Follow = head.transform;
+            _virtualCamera.LookAt = head.transform;
+
+            for (int i = 0; i < BeginSize - 1; i++)
+            {
+                AddBodyPice();
+            }
         }
 
     }
 
-    public void Update()
+    void Update()
     {
-        if (!isLocalPlayer) { return; }
-        //function moove
-        Moove();
+        if (isOwned)
+        {
+            //function moove
+            Moove();
+        }
     }
 
-    public void Moove()
+    void Moove()
     {
         float _speed = Speed;
 
