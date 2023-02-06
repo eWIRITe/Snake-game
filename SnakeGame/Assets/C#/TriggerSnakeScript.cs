@@ -13,6 +13,11 @@ public class TriggerSnakeScript : MonoBehaviour
     //varebles for Bonus
     public string TagOfBonus;
 
+    void Start()
+    {
+        DeadCanv = GameObject.Find("Dead");
+    }
+
     public void OnTriggerEnter(Collider other)
     {
         //when we touth something, we start function "Dead"

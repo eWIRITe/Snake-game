@@ -406,14 +406,14 @@ MonoBehaviour:
   syncMode: 0
   syncInterval: 0
   target: {fileID: 72981865875329539}
-  clientAuthority: 1
+  clientAuthority: 0
   syncPosition: 1
   syncRotation: 1
   syncScale: 0
   showGizmos: 0
   showOverlay: 0
   overlayColor: {r: 0, g: 0, b: 0, a: 0.5}
-  onlySyncOnChange: 1
+  onlySyncOnChange: 0
   bufferResetMultiplier: 5
   positionSensitivity: 0.01
   rotationSensitivity: 0.01
@@ -430,7 +430,6 @@ GameObject:
   - component: {fileID: 5591250328488631179}
   - component: {fileID: 8558384332559335692}
   - component: {fileID: 4162404218749075228}
-  - component: {fileID: 5049888090269381280}
   m_Layer: 0
   m_Name: Sphere
   m_TagString: Untagged
@@ -516,19 +515,3 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 0.95433366, y: 0.8885908, z: 0.31534743}
   m_Center: {x: 0.0012797862, y: 0.055704594, z: 0.2961548}
---- !u!114 &5049888090269381280
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6107297079984936515}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5cbd59871f75e5c4884f377528ac7c59, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  TagOfBlocks: Barier
-  Player: {fileID: 4423964915866672557}
-  DeadCanv: {fileID: 0}
-  TagOfBonus: Bonus

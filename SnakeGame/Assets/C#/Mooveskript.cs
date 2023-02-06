@@ -46,6 +46,7 @@ public class Mooveskript : NetworkBehaviour
         {
             AddBodyPice();
         }
+
     }
 
     public void Update()
